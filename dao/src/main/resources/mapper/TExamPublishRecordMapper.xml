@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.boss.bes.exam.dao.TExamPublishRecordMapper">
+  <resultMap id="BaseResultMap" type="com.boss.bes.exam.pojo.entity.TExamPublishRecord">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="exam_publish_record_id" jdbcType="BIGINT" property="examPublishRecordId" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="exam_session" jdbcType="VARCHAR" property="examSession" />
+    <result column="publisher" jdbcType="BIGINT" property="publisher" />
+    <result column="start_time" jdbcType="TIMESTAMP" property="startTime" />
+    <result column="end_time" jdbcType="TIMESTAMP" property="endTime" />
+    <result column="plan_pepole_num" jdbcType="INTEGER" property="planPepoleNum" />
+    <result column="limit_time" jdbcType="INTEGER" property="limitTime" />
+    <result column="descript" jdbcType="VARCHAR" property="descript" />
+    <result column="marking_mode" jdbcType="BIGINT" property="markingMode" />
+    <result column="marking_stop_time" jdbcType="TIMESTAMP" property="markingStopTime" />
+    <result column="qrcode_url" jdbcType="VARCHAR" property="qrcodeUrl" />
+    <result column="status" jdbcType="TINYINT" property="status" />
+    <result column="company_id" jdbcType="BIGINT" property="companyId" />
+    <result column="created_by" jdbcType="BIGINT" property="createdBy" />
+    <result column="created_time" jdbcType="TIMESTAMP" property="createdTime" />
+    <result column="updated_by" jdbcType="BIGINT" property="updatedBy" />
+    <result column="updated_time" jdbcType="TIMESTAMP" property="updatedTime" />
+    <result column="version" jdbcType="BIGINT" property="version" />
+    <result column="field1" jdbcType="VARCHAR" property="field1" />
+    <result column="field2" jdbcType="VARCHAR" property="field2" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="paper_id" jdbcType="BIGINT" property="paperId" />
+  </resultMap>
+</mapper>

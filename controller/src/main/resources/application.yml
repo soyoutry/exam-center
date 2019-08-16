@@ -1,0 +1,15 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: exam-center
+  redis:
+    database: 0
+    host: localhost
+    port: 6379
+    password: test123
+  datasource:
+    username: root
+    password: syt970630
+    url: jdbc:mysql://localhost:3306/db_exam_center?characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
+    driver-class-name: com.mysql.cj.jdbc.Driver
