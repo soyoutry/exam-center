@@ -1,9 +1,12 @@
 package com.boss.bes.exam.pojo.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Table(name = "t_user_record")
-public class TUserRecord {
+public class TUserRecord implements Serializable {
+    private static final long serialVersionUID = -1L;
+
     /**
      * 用户ID
      */

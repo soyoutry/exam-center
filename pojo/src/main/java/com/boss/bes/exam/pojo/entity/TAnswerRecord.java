@@ -1,10 +1,13 @@
 package com.boss.bes.exam.pojo.entity;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import javax.persistence.*;
 
 @Table(name = "t_answer_record")
-public class TAnswerRecord {
+public class TAnswerRecord implements Serializable {
+
+    private static final long serialVersionUID = -1L;
     /**
      * 答卷明细ID
      */

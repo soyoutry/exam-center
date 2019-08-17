@@ -1,10 +1,13 @@
 package com.boss.bes.exam.pojo.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.*;
 
 @Table(name = "t_exam_publish_record")
-public class TExamPublishRecord {
+public class TExamPublishRecord implements Serializable {
+
+    private static final long serialVersionUID = -1L;
     /**
      * 考试发布记录ID
      */

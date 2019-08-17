@@ -1,11 +1,14 @@
 package com.boss.bes.exam.pojo.entity;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 import javax.persistence.*;
 
 @Table(name = "t_exam_record")
-public class TExamRecord {
+public class TExamRecord implements Serializable {
+    private static final long serialVersionUID = -1L;
+
     /**
      * 考试记录ID
      */

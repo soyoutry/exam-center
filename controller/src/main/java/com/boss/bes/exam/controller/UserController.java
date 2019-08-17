@@ -19,6 +19,7 @@ public class UserController {
         return tUserRecords;
     }
 
+
     @RequestMapping("hello")
     public String hello(){
         return "hello";
