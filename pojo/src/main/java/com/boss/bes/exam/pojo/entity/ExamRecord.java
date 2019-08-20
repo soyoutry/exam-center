@@ -6,7 +6,7 @@ import java.util.Date;
 import javax.persistence.*;
 
 @Table(name = "t_exam_record")
-public class TExamRecord implements Serializable {
+public class ExamRecord implements Serializable {
     private static final long serialVersionUID = -1L;
 
     /**
@@ -130,6 +130,9 @@ public class TExamRecord implements Serializable {
      */
     private Long version;
 
+    /**
+     * 考试发布记录ID
+     */
     @Column(name = "exam_publish_record_id")
     private Long examPublishRecordId;
 

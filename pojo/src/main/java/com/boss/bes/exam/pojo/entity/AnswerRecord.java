@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 import javax.persistence.*;
 
 @Table(name = "t_answer_record")
-public class TAnswerRecord implements Serializable {
+public class AnswerRecord implements Serializable {
 
     private static final long serialVersionUID = -1L;
     /**

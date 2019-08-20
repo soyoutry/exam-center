@@ -1,7 +1,7 @@
 package com.boss.bes.exam.controller;
 
 import com.boss.bes.exam.dao.TUserRecordMapper;
-import com.boss.bes.exam.pojo.entity.TUserRecord;
+import com.boss.bes.exam.pojo.entity.UserRecord;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,9 +14,9 @@ public class UserController {
     TUserRecordMapper tUserRecordMapper;
 
     @RequestMapping("getuser")
-    public List<TUserRecord> getUser(){
-        List<TUserRecord> tUserRecords = tUserRecordMapper.selectAll();
-        return tUserRecords;
+    public List<UserRecord> getUser(){
+        List<UserRecord> userRecords = tUserRecordMapper.selectAll();
+        return userRecords;
     }
 
 
