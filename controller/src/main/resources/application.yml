@@ -13,3 +13,6 @@ spring:
     password: syt970630
     url: jdbc:mysql://localhost:3306/db_exam_center?characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
     driver-class-name: com.mysql.cj.jdbc.Driver
+mybatis:
+  type-aliases-package: com.boss.bes.exam.pojo.entity
+  mapper-locations: classpath:mapper/*.xml
