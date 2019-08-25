@@ -10,8 +10,8 @@ spring:
     password: test123
   datasource:
     username: root
-    password: syt970630
-    url: jdbc:mysql://localhost:3306/db_exam_center?characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
+    password: 123456
+    url: jdbc:mysql://139.196.162.227:3306/db_exam_center?characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
     driver-class-name: com.mysql.cj.jdbc.Driver
 mybatis:
   type-aliases-package: com.boss.bes.exam.pojo.entity
