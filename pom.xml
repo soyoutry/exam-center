@@ -8,6 +8,20 @@
     <artifactId>exam-center</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+
+<!--    <distributionManagement>-->
+<!--        <repository>-->
+<!--            <id>nexus-releases</id>-->
+<!--            <name>Nexus Release Repository</name>-->
+<!--            <url>http://106.14.113.130:8081/repository/maven-releases/</url>-->
+<!--        </repository>-->
+<!--        <snapshotRepository>-->
+<!--            <id>nexus-snapshots</id>-->
+<!--            <name>Nexus Snapshot Repository</name>-->
+<!--            <url>http://106.14.113.130:8081/repository/maven-snapshots/</url>-->
+<!--        </snapshotRepository>-->
+<!--    </distributionManagement>-->
+
     <modules>
         <module>controller</module>
         <module>pojo</module>
@@ -15,6 +29,7 @@
         <module>utils</module>
         <module>service</module>
     </modules>
+
 
     <dependencies>
         <dependency>
@@ -28,7 +43,45 @@
             <artifactId>druid</artifactId>
             <version>1.1.10</version>
         </dependency>
-
-
     </dependencies>
+<!--    配置代理仓库 添加再根pom中-->
+    <repositories>
+        <repository>
+            <id>nexus</id>
+            <name>Nexus Repository</name>
+            <url>http://106.14.113.130:8081/repository/maven-public/</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>nexus</id>
+            <name>Nexus Plugin Repository</name>
+            <url>http://106.14.113.130:8081/repository/maven-public/</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </pluginRepository>
+    </pluginRepositories>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

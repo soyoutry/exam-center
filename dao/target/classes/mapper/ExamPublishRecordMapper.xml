@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.boss.bes.exam.dao.ExamPublishRecordMapper">
+  <resultMap id="BaseResultMap" type="com.boss.bes.exam.entity.ExamPublishRecord">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="exam_session" jdbcType="VARCHAR" property="examSession" />
+    <result column="publisher" jdbcType="BIGINT" property="publisher" />
+    <result column="start_time" jdbcType="TIMESTAMP" property="startTime" />
+    <result column="end_time" jdbcType="TIMESTAMP" property="endTime" />
+    <result column="plan_pepole_num" jdbcType="INTEGER" property="planPepoleNum" />
+    <result column="limit_time" jdbcType="INTEGER" property="limitTime" />
+    <result column="descript" jdbcType="VARCHAR" property="descript" />
+    <result column="marking_mode" jdbcType="BIGINT" property="markingMode" />
+    <result column="marking_stop_time" jdbcType="TIMESTAMP" property="markingStopTime" />
+    <result column="qrcode_url" jdbcType="VARCHAR" property="qrcodeUrl" />
+    <result column="status" jdbcType="TINYINT" property="status" />
+    <result column="company_id" jdbcType="BIGINT" property="companyId" />
+    <result column="created_by" jdbcType="BIGINT" property="createdBy" />
+    <result column="created_time" jdbcType="TIMESTAMP" property="createdTime" />
+    <result column="updated_by" jdbcType="BIGINT" property="updatedBy" />
+    <result column="updated_time" jdbcType="TIMESTAMP" property="updatedTime" />
+    <result column="version" jdbcType="BIGINT" property="version" />
+    <result column="field1" jdbcType="VARCHAR" property="field1" />
+    <result column="field2" jdbcType="VARCHAR" property="field2" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="paper_id" jdbcType="BIGINT" property="paperId" />
+
+    <collection property="examRecords" ofType="com.boss.bes.exam.entity.ExamRecord">
+      <id column="id" jdbcType="BIGINT" property="id" />
+      <result column="examiner" jdbcType="VARCHAR" property="examiner" />
+      <result column="tel" jdbcType="VARCHAR" property="tel" />
+      <result column="actual_start_time" jdbcType="TIMESTAMP" property="actualStartTime" />
+      <result column="actual_end_time" jdbcType="TIMESTAMP" property="actualEndTime" />
+      <result column="objective_subject_score" jdbcType="DECIMAL" property="objectiveSubjectScore" />
+      <result column="subjectvie_subject_score" jdbcType="DECIMAL" property="subjectvieSubjectScore" />
+    </collection>
+  </resultMap>
+
+  <select id="query" resultMap="BaseResultMap">
+    SELECT t_exam_publish_record.title,t_exam_publish_record.exam_session,t_exam_publish_record.end_time,
+           t_exam_record.tel,t_exam_record.examiner,t_exam_record.actual_start_time,t_exam_record.actual_end_time,
+           t_exam_record.objective_subject_score,t_exam_record.subjectvie_subject_score FROM t_exam_record,
+           t_exam_publish_record WHERE t_exam_record.exam_publish_record_id=t_exam_publish_record.id
+  </select>
+</mapper>
