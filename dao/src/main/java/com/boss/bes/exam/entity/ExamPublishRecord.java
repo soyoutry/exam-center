@@ -127,12 +127,6 @@ public class ExamPublishRecord {
     private String field2;
 
     /**
-     * 用户ID
-     */
-    @Column(name = "user_id")
-    private Long userId;
-
-    /**
      * 试卷ID
      */
     @Column(name = "paper_id")
@@ -527,24 +521,6 @@ public class ExamPublishRecord {
      */
     public void setField2(String field2) {
         this.field2 = field2;
-    }
-
-    /**
-     * 获取用户ID
-     *
-     * @return user_id - 用户ID
-     */
-    public Long getUserId() {
-        return userId;
-    }
-
-    /**
-     * 设置用户ID
-     *
-     * @param userId 用户ID
-     */
-    public void setUserId(Long userId) {
-        this.userId = userId;
     }
 
     /**

@@ -3,6 +3,7 @@ package com.boss.bes.exam.service.impl;
 import com.boss.bes.exam.dao.ExamPublishRecordMapper;
 import com.boss.bes.exam.entity.ExamPublishRecord;
 import com.boss.bes.exam.entity.ExamRecord;
+import com.boss.bes.exam.pojo.DTO.answersheet.ExamAnswerSheetRecordQueryFormDTO;
 import com.boss.bes.exam.pojo.DTO.answersheet.ExamAnswerSheetRecordTableDataDTO;
 import com.boss.bes.exam.service.AnswerSheetRecordService;
 import org.springframework.beans.BeanUtils;
@@ -18,15 +19,19 @@ public class AnswerSheetRecordServiceImpl implements AnswerSheetRecordService {
     ExamPublishRecordMapper examPublishRecordMapper;
 
     @Override
-    public List<ExamAnswerSheetRecordTableDataDTO> queryAnswerSheet(){
-        List<ExamPublishRecord> examPublishRecords = examPublishRecordMapper.query();
+    public List<ExamAnswerSheetRecordTableDataDTO> queryAnswerSheet(ExamAnswerSheetRecordQueryFormDTO examAnswerSheetRecordQueryFormDTO) {
+        List<ExamPublishRecord> examPublishRecords = examPublishRecordMapper.queryAnswerRecord(examAnswerSheetRecordQueryFormDTO);
+        return convert(examPublishRecords);
+    }
+
+    private List<ExamAnswerSheetRecordTableDataDTO> convert(List<ExamPublishRecord> examPublishRecords){
         List<ExamAnswerSheetRecordTableDataDTO> examAnswerSheetRecordTableDataDTOS= new ArrayList<>();
         for (ExamPublishRecord examPublishRecord : examPublishRecords) {
             ExamAnswerSheetRecordTableDataDTO examAnswerSheetRecordTableDataDTO = new ExamAnswerSheetRecordTableDataDTO();
-            BeanUtils.copyProperties(examPublishRecord,examAnswerSheetRecordTableDataDTO);
             for (ExamRecord examRecord : examPublishRecord.getExamRecords()) {
                 BeanUtils.copyProperties(examRecord,examAnswerSheetRecordTableDataDTO);
             }
+            BeanUtils.copyProperties(examPublishRecord,examAnswerSheetRecordTableDataDTO);
             examAnswerSheetRecordTableDataDTOS.add(examAnswerSheetRecordTableDataDTO);
         }
         return examAnswerSheetRecordTableDataDTOS;

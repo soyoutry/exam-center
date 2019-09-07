@@ -3,20 +3,27 @@ package com.boss.bes.exam.pojo.VO.report;
 
 import lombok.Data;
 
-import java.math.BigDecimal;
-
 @Data
 @SuppressWarnings("unused")
 public class ExamReportRecordDetailTableDataVO {
-
-    private String abilityLabel;
-    private String examCostTime;
     private String examiner;
-    private BigDecimal objectiveSubjectScore;
-    private Integer ranking;
-    private BigDecimal score;
-    private String sex;
-    private BigDecimal subjectvieSubjectScore;
+    private Byte sex;
     private String title;
+    private Double objectiveSubjectScore;
+    private Double subjectvieSubjectScore;
+    private Double score;
+    /**
+     * 排名 TODO 待生成
+     */
+    private Integer ranking;
+    /**
+     * 考试耗时
+     */
+    private String examCostTime;
+    /**
+     * TODO 根据成绩生成
+     */
+    private String abilityLabel;
+
 
 }

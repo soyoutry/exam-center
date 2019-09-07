@@ -13,5 +13,5 @@ public class ExamAnswerSheetRecordQueryFormVO {
     private List<Date> examTimeRange;
     private String publisher;
     private String title;
-
+    private Integer currentPage;
 }

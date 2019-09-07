@@ -11,7 +11,7 @@ import java.util.List;
 public class ExamAnswerSheetRecordQueryFormDTO {
 
     private String examSession;
-    private List<Date> examTimeRange;
+    private List<String> examTimeRange;
     private String publisher;
     private String title;
 

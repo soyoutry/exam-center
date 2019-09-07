@@ -1,25 +1,24 @@
 
 package com.boss.bes.exam.pojo.VO.grade;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import lombok.Data;
-
-import java.math.BigDecimal;
-import java.util.Date;
 
 @Data
 @SuppressWarnings("unused")
 public class ExamGradeRecordTableDataVO {
-
-    private Date actualEndTime;
+    @JsonSerialize(using = ToStringSerializer.class)
+    private Long id;
+    private String actualEndTime;
     private String examSession;
     private String examiner;
-    private Date markingStopTime;
-    private BigDecimal objectiveSubjectScore;
-    private String paper;
-    private Date publishDate;
+    private String markingStopTime;
+    private Double objectiveSubjectScore;
+    private Long paperId;
+    private String createdTime;
     private String status;
-    private BigDecimal subjectvieSubjectScore;
+    private Double subjectvieSubjectScore;
     private String systemEvaluate;
     private String tel;
-
 }

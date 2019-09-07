@@ -1,8 +1,24 @@
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: 172.20.0.219:8761:exam
+  client:
+    serviceUrl:
+      defaultZone: http://139.196.162.227:8761/eureka/
 server:
   port: 8080
+  servlet:
+    context-path: /boss/bes/exam
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
+        loggerLevel: basic
 spring:
   application:
-    name: exam-center
+    name: boss-bes-exam
   redis:
     database: 0
     host: localhost
@@ -10,9 +26,12 @@ spring:
     password: test123
   datasource:
     username: root
-    password: 123456
-    url: jdbc:mysql://139.196.162.227:3306/db_exam_center?characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
+#    password: 123456
+    password: syt970630
+#    url: jdbc:mysql://139.196.162.227:3306/db_exam_center?characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://localhost:3306/db_exam_center?characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
     driver-class-name: com.mysql.cj.jdbc.Driver
 mybatis:
   type-aliases-package: com.boss.bes.exam.pojo.entity
   mapper-locations: classpath:mapper/*.xml
+

@@ -1,8 +1,7 @@
 package com.boss.bes.exam.entity;
 
-import java.math.BigDecimal;
-import java.util.Date;
 import javax.persistence.*;
+import java.util.Date;
 
 @Table(name = "t_exam_record")
 public class ExamRecord {
@@ -68,18 +67,18 @@ public class ExamRecord {
      * 客观题得分
      */
     @Column(name = "objective_subject_score")
-    private BigDecimal objectiveSubjectScore;
+    private Double objectiveSubjectScore;
 
     /**
      * 主观题得分
      */
     @Column(name = "subjectvie_subject_score")
-    private BigDecimal subjectvieSubjectScore;
+    private Double subjectvieSubjectScore;
 
     /**
      * 总分
      */
-    private BigDecimal score;
+    private Double score;
 
     /**
      * 系统评价
@@ -321,7 +320,7 @@ public class ExamRecord {
      *
      * @return objective_subject_score - 客观题得分
      */
-    public BigDecimal getObjectiveSubjectScore() {
+    public Double getObjectiveSubjectScore() {
         return objectiveSubjectScore;
     }
 
@@ -330,7 +329,7 @@ public class ExamRecord {
      *
      * @param objectiveSubjectScore 客观题得分
      */
-    public void setObjectiveSubjectScore(BigDecimal objectiveSubjectScore) {
+    public void setObjectiveSubjectScore(Double objectiveSubjectScore) {
         this.objectiveSubjectScore = objectiveSubjectScore;
     }
 
@@ -339,7 +338,7 @@ public class ExamRecord {
      *
      * @return subjectvie_subject_score - 主观题得分
      */
-    public BigDecimal getSubjectvieSubjectScore() {
+    public Double getSubjectvieSubjectScore() {
         return subjectvieSubjectScore;
     }
 
@@ -348,7 +347,7 @@ public class ExamRecord {
      *
      * @param subjectvieSubjectScore 主观题得分
      */
-    public void setSubjectvieSubjectScore(BigDecimal subjectvieSubjectScore) {
+    public void setSubjectvieSubjectScore(Double subjectvieSubjectScore) {
         this.subjectvieSubjectScore = subjectvieSubjectScore;
     }
 
@@ -357,7 +356,7 @@ public class ExamRecord {
      *
      * @return score - 总分
      */
-    public BigDecimal getScore() {
+    public Double getScore() {
         return score;
     }
 
@@ -366,7 +365,7 @@ public class ExamRecord {
      *
      * @param score 总分
      */
-    public void setScore(BigDecimal score) {
+    public void setScore(Double score) {
         this.score = score;
     }
 
