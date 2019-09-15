@@ -5,6 +5,7 @@ import common.BaseDTO;
 import lombok.Data;
 
 import java.util.Date;
+import java.util.List;
 
 @Data
 @SuppressWarnings("unused")
@@ -19,4 +20,6 @@ public class ExamPublishRecordPublishFormDTO extends BaseDTO {
     private Long paperId;
     private Integer planPepoleNum;
     private String title;
+    private List<Long> examinersId;
+    private Long publisher;
 }

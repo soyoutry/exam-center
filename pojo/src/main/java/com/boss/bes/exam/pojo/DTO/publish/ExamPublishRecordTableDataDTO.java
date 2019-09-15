@@ -3,6 +3,7 @@ package com.boss.bes.exam.pojo.DTO.publish;
 import lombok.Data;
 
 import java.util.Date;
+import java.util.List;
 
 @Data
 public class ExamPublishRecordTableDataDTO {
@@ -18,4 +19,6 @@ public class ExamPublishRecordTableDataDTO {
     private Long version;
     private String examSession;
     private Integer publishTimes;
+    private List<Long> examiners;
+    private Long paperId;
 }

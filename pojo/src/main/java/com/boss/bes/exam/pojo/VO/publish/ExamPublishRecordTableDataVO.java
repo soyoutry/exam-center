@@ -24,4 +24,7 @@ public class ExamPublishRecordTableDataVO {
      */
     //TODO 试卷服务获取
     private Integer publishTimes;
+    private String examiners;
+    @JsonSerialize(using = ToStringSerializer.class)
+    private Long paperId;
 }

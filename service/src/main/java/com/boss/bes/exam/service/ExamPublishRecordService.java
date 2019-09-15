@@ -8,7 +8,7 @@ import java.util.List;
  * @see com.boss.bes.exam.service.impl.ExamPublishRecordServiceImpl
  */
 public interface ExamPublishRecordService {
-    List<ExamPublishRecordTableDataDTO> queryExamPublishRecord(ExamPublishRecordQueryFormDTO examPublishRecordQueryFormDTO);
+    List<ExamPublishRecordTableDataDTO> queryExamPublishRecord(ExamPublishRecordQueryFormDTO examPublishRecordQueryFormDTO) throws InstantiationException, IllegalAccessException;
     boolean addExamPublishRecord(ExamPublishRecordPublishFormDTO examPublishRecordPublishFormDTO);
     boolean deleteExamPublishRecord(List<ExamPublishRecordDeleteFormDTO> dtoList);
     boolean updateExamPublishRecord(ExamPublishRecordEditFormDTO examPublishRecordEditFormDTO);

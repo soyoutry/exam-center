@@ -80,7 +80,8 @@
     t.descript,
     t.status,
     t.version,
-    t.exam_session
+    t.exam_session,
+    t.paper_id
     FROM
     t_exam_publish_record AS t
     <where>

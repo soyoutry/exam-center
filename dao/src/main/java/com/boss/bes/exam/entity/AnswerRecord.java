@@ -1,6 +1,5 @@
 package com.boss.bes.exam.entity;
 
-import java.math.BigDecimal;
 import javax.persistence.*;
 
 @Table(name = "t_answer_record")
@@ -27,7 +26,7 @@ public class AnswerRecord {
     /**
      * 得分
      */
-    private BigDecimal score;
+    private Double score;
 
     /**
      * 评价
@@ -102,7 +101,7 @@ public class AnswerRecord {
      *
      * @return score - 得分
      */
-    public BigDecimal getScore() {
+    public Double getScore() {
         return score;
     }
 
@@ -111,7 +110,7 @@ public class AnswerRecord {
      *
      * @param score 得分
      */
-    public void setScore(BigDecimal score) {
+    public void setScore(Double score) {
         this.score = score;
     }
 

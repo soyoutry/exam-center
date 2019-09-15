@@ -10,7 +10,7 @@ import com.boss.bes.exam.pojo.VO.report.ExamReportRecordExamTableDataVO;
 import com.boss.bes.exam.pojo.VO.report.ExamReportRecordQueryFormVO;
 import com.boss.bes.exam.service.ReportService;
 import com.boss.bes.exam.utils.DateFormatUtil;
-import com.bosssoft.hr.train.bossbescommonlogging.annotation.Log;
+import com.bosssoft.hr.train.bossbescommonlogging.annotation.MethodEnhancer;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -32,7 +32,7 @@ public class ReportController {
     private final static Integer PAGE_SIZE = 8;
     @Autowired
     ReportService reportService;
-    @Log
+    @MethodEnhancer
     @RequestMapping(value = "query",method = RequestMethod.POST)
     public CommonResponse query(@RequestBody CommonRequest<ExamReportRecordQueryFormVO> commonRequest){
         try {
@@ -60,10 +60,10 @@ public class ReportController {
         } catch (InstantiationException | IllegalAccessException e) {
             e.printStackTrace();
         }
-        return new CommonResponse("","200","页面加载失败",false,null);
+        return new CommonResponse("200","页面加载失败",false,null);
     }
 
-    @Log
+    @MethodEnhancer
     @RequestMapping(value = "querydetail",method = RequestMethod.POST)
     public CommonResponse queryDetail(@RequestBody CommonRequest<ExamDetailQueryFormVO> commonRequest){
         try {
@@ -86,11 +86,11 @@ public class ReportController {
             Map<String,Object> map = new HashMap<>();
             map.put("total",p.getTotal());
             map.put("pageInfo",pageInfo);
-            return new CommonResponse("","200","页面加载成功",false,map);
+            return new CommonResponse("200","页面加载成功",false,map);
         } catch (InstantiationException | IllegalAccessException e) {
             e.printStackTrace();
         }
-        return new CommonResponse("","200","页面加载失败",false,null);
+        return new CommonResponse("200","页面加载失败",false,null);
     }
 
     private String getLabel(ExamReportRecordDetailTableDataDTO dto){

@@ -3,11 +3,15 @@ package com.boss.bes.exam.controller;
 import bosssoft.hr.train.common.utils.Converter;
 import com.boss.bes.exam.pojo.DTO.grade.ExamGradeRecordQueryFormDTO;
 import com.boss.bes.exam.pojo.DTO.grade.ExamGradeRecordTableDataDTO;
+import com.boss.bes.exam.pojo.DTO.grade.MarkingAnswerDTO;
+import com.boss.bes.exam.pojo.DTO.grade.MarkingPaperDTO;
 import com.boss.bes.exam.pojo.VO.grade.ExamGradeRecordQueryFormVO;
 import com.boss.bes.exam.pojo.VO.grade.ExamGradeRecordTableDataVO;
+import com.boss.bes.exam.pojo.VO.grade.MarkingPaperVO;
 import com.boss.bes.exam.service.GradeService;
 import com.boss.bes.exam.utils.DateFormatUtil;
 import com.boss.bes.exam.utils.DateToString;
+import com.bosssoft.hr.train.bossbescommonlogging.annotation.MethodEnhancer;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -31,6 +35,7 @@ public class GradeController {
     GradeService gradeService;
     @Autowired
     Converter converter;
+    @MethodEnhancer
     @RequestMapping(value = "query",method = RequestMethod.POST)
     public CommonResponse query(@RequestBody CommonRequest<ExamGradeRecordQueryFormVO> commonRequest){
         try {
@@ -57,12 +62,29 @@ public class GradeController {
             Map<String,Object> map = new HashMap<>();
             map.put("total",p.getTotal());
             map.put("pageInfo",pageInfo);
-            return new CommonResponse("","200","页面加载成功",false,map);
+            return new CommonResponse("200","页面加载成功",false,map);
 
         } catch (InstantiationException | IllegalAccessException e) {
             e.printStackTrace();
         }
-        return new CommonResponse("","200","页面加载失败",false,null);
+        return new CommonResponse("200","页面加载失败",false,null);
+    }
+
+
+    @MethodEnhancer
+    @RequestMapping(value = "markingpaper",method = RequestMethod.POST)
+    public CommonResponse markingPaper(@RequestBody CommonRequest<MarkingPaperVO> commonRequest){
+        MarkingPaperVO markingPaperVO = commonRequest.getBody();
+        MarkingPaperDTO markingPaperDTO = new MarkingPaperDTO();
+        BeanUtils.copyProperties(markingPaperVO,markingPaperDTO);
+        List<MarkingAnswerDTO> markingAnswerDTOS = converter.convertList(markingPaperVO.getMarkingAnswerVOList(), MarkingAnswerDTO.class);
+        markingPaperDTO.setMarkingAnswerDTOList(markingAnswerDTOS);
+        //todo 添加总分和评价
+        if (gradeService.markingPaper(markingPaperDTO)){
+            return new CommonResponse("200","试卷评分成功",false,null);
+        }
+        return new CommonResponse("200","试卷评分失败",false,null);
+
     }
 
     private void setVoStatus(ExamGradeRecordTableDataVO tableDataVO,ExamGradeRecordTableDataDTO tableDataDTO){

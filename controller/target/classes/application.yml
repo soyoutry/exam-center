@@ -34,4 +34,8 @@ spring:
 mybatis:
   type-aliases-package: com.boss.bes.exam.pojo.entity
   mapper-locations: classpath:mapper/*.xml
+bossbes:
+  data-center-id: 5
+  machine-id: 1
+  version: boss-bes-1.0
 

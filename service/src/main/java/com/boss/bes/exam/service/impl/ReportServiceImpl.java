@@ -10,10 +10,12 @@ import com.boss.bes.exam.pojo.DTO.report.ExamReportRecordDetailTableDataDTO;
 import com.boss.bes.exam.pojo.DTO.report.ExamReportRecordExamTableDataDTO;
 import com.boss.bes.exam.pojo.DTO.report.ExamReportRecordQueryFormDTO;
 import com.boss.bes.exam.service.ReportService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
 
+import java.util.ArrayList;
 import java.util.List;
 @Service
 public class ReportServiceImpl implements ReportService {
@@ -33,7 +35,17 @@ public class ReportServiceImpl implements ReportService {
         criteria.andLike("examSession",examReportRecordQueryFormDTO.getExamSession()+"%");
         criteria.andBetween("endTime",examReportRecordQueryFormDTO.getStartTime(),examReportRecordQueryFormDTO.getEndTime());
         List<ExamPublishRecord> recordList = examPublishRecordMapper.selectByExample(example);
-        List<ExamReportRecordExamTableDataDTO> tableDataDTOS = converter.convertList(recordList,ExamReportRecordExamTableDataDTO.class);
+        List<ExamReportRecordExamTableDataDTO> tableDataDTOS = new ArrayList<>();
+        for (ExamPublishRecord examPublishRecord : recordList) {
+            ExamReportRecordExamTableDataDTO tableDataDTO = new ExamReportRecordExamTableDataDTO();
+            BeanUtils.copyProperties(examPublishRecord,tableDataDTO);
+            Example examExample = new Example(ExamRecord.class);
+            Example.Criteria examCriteria = examExample.createCriteria();
+            examCriteria.andEqualTo("examPublishRecordId",examPublishRecord.getId());
+            List<ExamRecord> examRecords = examRecordMapper.selectByExample(examExample);
+            tableDataDTO.setActualPepoleNum(examRecords.size());
+            tableDataDTOS.add(tableDataDTO);
+        }
         return tableDataDTOS;
     }
 

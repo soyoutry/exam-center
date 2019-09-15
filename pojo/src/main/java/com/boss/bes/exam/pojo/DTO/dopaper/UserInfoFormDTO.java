@@ -8,5 +8,5 @@ public class UserInfoFormDTO {
     private String examiner;
     private Byte sex;
     //TODO 发布记录id
-//    private Long id;
+    private Long examPublishRecordId;
 }

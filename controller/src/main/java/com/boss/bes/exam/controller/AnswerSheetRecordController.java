@@ -7,7 +7,7 @@ import com.boss.bes.exam.pojo.VO.answersheet.ExamAnswerSheetRecordTableDataVO;
 import com.boss.bes.exam.service.AnswerSheetRecordService;
 import com.boss.bes.exam.utils.DateFormatUtil;
 import com.boss.bes.exam.utils.DateToString;
-import com.bosssoft.hr.train.bossbescommonlogging.annotation.Log;
+import com.bosssoft.hr.train.bossbescommonlogging.annotation.MethodEnhancer;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -30,7 +30,7 @@ public class AnswerSheetRecordController {
     private AnswerSheetRecordService answerSheetRecordService;
     private final static Integer PAGE_SIZE = 8;
 
-    @Log
+    @MethodEnhancer
     @RequestMapping(value = "getanswersheet",method = RequestMethod.POST)
     public CommonResponse queryAll(@RequestBody CommonRequest<ExamAnswerSheetRecordQueryFormVO> commonRequest){
         ExamAnswerSheetRecordQueryFormVO examAnswerSheetRecordQueryFormVO = commonRequest.getBody();
@@ -56,6 +56,6 @@ public class AnswerSheetRecordController {
         Map<String,Object> map = new HashMap<>();
         map.put("total",p.getTotal());
         map.put("pageInfo",pageInfo);
-        return new CommonResponse("","200","页面加载成功",false,map);
+        return new CommonResponse("200","页面加载成功",false,map);
     }
 }
